@@ -14,12 +14,13 @@ $(window).scroll(load_images_in_view);
 
 function load_images_in_view()
 {
+  // calculate the bottom of the window.
+  var window_bottom = $(window).scrollTop() + $(window).height();
+    
   // a scroll was detected - check all images in DOM
   $("img").each(function() {
     // calculate the halfway to the bottom of the object.
     var object_bottom = $(this).offset().top + ($(this).outerHeight()/2);
-    // calculate the bottom of the window.
-    var window_bottom = $(window).scrollTop() + $(window).height();
 
     if(window_bottom > object_bottom)
     {      
