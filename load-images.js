@@ -16,27 +16,27 @@ function load_images_in_view()
 {
   // a scroll was detected - check all images in DOM
   $("img").each(function() {
-		// calculate the halfway to the bottom of the object.
-		var object_bottom = $(this).offset().top + ($(this).outerHeight()/2);
-		// calculate the bottom of the window.
-		var window_bottom = $(window).scrollTop() + $(window).height();
+    // calculate the halfway to the bottom of the object.
+    var object_bottom = $(this).offset().top + ($(this).outerHeight()/2);
+    // calculate the bottom of the window.
+    var window_bottom = $(window).scrollTop() + $(window).height();
 
-		if(window_bottom > object_bottom)
-		{      
-				// check to see if a flag was set,
-				// so we don't constantly reload this image
-				if($(this).data("image-loaded") != true)
-				{
-		      // obtain the image to replace
-          var image_source = $(this).data("async-load");
+    if(window_bottom > object_bottom)
+    {      
+      // check to see if a flag was set,
+      // so we don't constantly reload this image
+      if($(this).data("image-loaded") != true)
+      {
+        // obtain the image to replace
+        var image_source = $(this).data("async-load");
       
-          // set image loaded complete flag, and change image src.
-          $(this).data("image-loaded",true);
-					$(this).attr("src",image_source);
-				}      
+        // set image loaded complete flag, and change image src.
+        $(this).data("image-loaded",true);
+	$(this).attr("src",image_source);
+      }      
     }
     
   }); // end $("img").each()  
-}
+} // end function
 
 }); // end $(document).ready();
